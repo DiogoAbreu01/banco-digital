@@ -1,5 +1,7 @@
 # Aurora — banco digital de simulação
 
+**International engineering portfolio:** [English case study with verifiable tests and security evidence](docs/ENGINEERING_CASE_STUDY_EN.md) — transactional ledger, ACID invariants, fault injection, CI, and honest limitations.
+
 Monorepo com API Ruby on Rails, aplicação web Next.js e aplicativo Expo para Android e iOS. **Todo dinheiro é fictício.** Não há Pix, cartões, execução de investimentos, consulta a bureaus ou conexão com instituições financeiras.
 
 O código implementa os módulos das fases 1 a 7. A Fase 8 registra os testes efetivamente executados, os builds e os limites da entrega em [docs/phase-8-validation.md](docs/phase-8-validation.md). Builds assinados, publicação nas lojas e implantação pública exigem contas, certificados e revisão operacional; não são inferidos de um build local.
