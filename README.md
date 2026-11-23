@@ -1,14 +1,28 @@
-# Aurora — banco digital de simulação
+<h1 align="center">AURORA</h1>
 
-**International engineering portfolio:** [English case study with verifiable tests and security evidence](docs/ENGINEERING_CASE_STUDY_EN.md) — transactional ledger, ACID invariants, fault injection, CI, and honest limitations.
+**Trust is a database invariant.**
 
-Monorepo com API Ruby on Rails, aplicação web Next.js e aplicativo Expo para Android e iOS. **Todo dinheiro é fictício.** Não há Pix, cartões, execução de investimentos, consulta a bureaus ou conexão com instituições financeiras.
+*A fictional banking platform built as a financial-systems engineering exercise.*
 
-O código implementa os módulos das fases 1 a 7. A Fase 8 registra os testes efetivamente executados, os builds e os limites da entrega em [docs/phase-8-validation.md](docs/phase-8-validation.md). Builds assinados, publicação nas lojas e implantação pública exigem contas, certificados e revisão operacional; não são inferidos de um build local.
+[Engineering case study](docs/ENGINEERING_CASE_STUDY_EN.md) · [Architecture](docs/architecture.md) · [Security](docs/security.md) · [Local setup](#inicialização-no-vs-code--docker)
 
-> **Relatório do projeto:** [entenda o que foi construído, como funciona, como executar e quais limites permanecem](docs/relatorio-do-projeto.md).
+[![CI](https://github.com/DiogoAbreu01/banco-digital/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DiogoAbreu01/banco-digital/actions/workflows/ci.yml)
+![Ruby on Rails](https://img.shields.io/badge/Rails-101828?style=flat-square&logo=rubyonrails&logoColor=ff5a5f)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-101828?style=flat-square&logo=postgresql&logoColor=65c9ff)
+![React Native](https://img.shields.io/badge/React_Native-101828?style=flat-square&logo=react&logoColor=65c9ff)
 
-> **Primeiro teste no Windows:** [guia passo a passo para baixar o ZIP, iniciar no VS Code e testar com Marina e Lucas](docs/guia-windows.md).
+<p align="center"><img src="docs/dashboard-preview.png" alt="Aurora's simulated account dashboard, provided as a repository preview" width="780" /></p>
+
+
+> **DAs / Engineering notes:** A transfer is not successful until the ledger says it is. Every debit, credit, retry and failure belongs to a consistent transaction story.
+
+**Engineering focus.** A Ruby on Rails API, PostgreSQL double-entry ledger, Redis/Sidekiq jobs, Next.js web app and Expo mobile client. The architecture explores transactional integrity, idempotency, concurrent transfers, MFA, audit trails and rollback under injected failures.
+
+**Evidence:** The [English case study](docs/ENGINEERING_CASE_STUDY_EN.md) links to backend, security and browser validation. The [CI workflow](.github/workflows/ci.yml) runs Rails/RSpec, web and mobile checks, dependency audits and browser E2E; passing CI does **not** imply a signed or device-tested release.
+
+**Important:** Aurora is a **simulation only**. All money is fictitious. No live banking integrations, payment rails, loans or real investment execution.
+
+---
 
 ## Stack e estrutura
 
