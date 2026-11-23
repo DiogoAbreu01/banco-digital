@@ -1,0 +1,41 @@
+# One-time tool: regenerate the Ruby dependency lock with Bundler 2.6.9.
+# The workflow removes itself in the successful commit, and is restricted to
+# this same-repository branch. No application secrets are accessed.
+name: Aurora one-time Ruby lock refresh
+on:
+  push:
+    branches: ['security/aurora-ruby-advisories-2026-11-22']
+    paths:
+      - '.github/workflows/refresh-ruby-lock.yml'
+permissions:
+  contents: write
+jobs:
+  lock:
+    if: github.repository == 'DiogoAbreu01/banco-digital'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact branch
+        uses: actions/checkout@v4
+        with:
+          ref: security/aurora-ruby-advisories-2026-11-22
+          persist-credentials: true
+      - name: Install Ruby (no dependency cache)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.11'
+          bundler-cache: false
+      - name: Install lockfile Bundler
+        run: gem install bundler -v 2.6.9 --no-document
+      - name: Resolve patched Ruby gems without executing the app
+        working-directory: backend
+        run: |
+          bundle _2.6.9_ lock --update rails rack puma nokogiri loofah crass rails-html-sanitizer
+          bundle _2.6.9_ lock --print > /tmp/aurora-resolved.lock
+          diff -u Gemfile.lock /tmp/aurora-resolved.lock
+      - name: Commit resolved lock and remove this temporary workflow
+        run: |
+          rm .github/workflows/refresh-ruby-lock.yml
+          git add backend/Gemfile.lock .github/workflows/refresh-ruby-lock.yml
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'security: resolve patched Ruby dependencies using Bundler 2.6.9'
+          git push origin HEAD:refs/heads/security/aurora-ruby-advisories-2026-11-22
