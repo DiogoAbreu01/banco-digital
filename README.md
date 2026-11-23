@@ -1,6 +1,4 @@
-<div align="center">
-
-# AURORA
+<h1 align="center">AURORA</h1>
 
 **Trust is a database invariant.**
 
@@ -13,9 +11,8 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-101828?style=flat-square&logo=postgresql&logoColor=65c9ff)
 ![React Native](https://img.shields.io/badge/React_Native-101828?style=flat-square&logo=react&logoColor=65c9ff)
 
-<img src="docs/dashboard-preview.png" alt="Aurora's simulated account dashboard, provided as a repository preview" width="780" />
+<p align="center"><img src="docs/dashboard-preview.png" alt="Aurora's simulated account dashboard, provided as a repository preview" width="780" /></p>
 
-</div>
 
 > **DAs / Engineering notes:** A transfer is not successful until the ledger says it is. Every debit, credit, retry and failure belongs to a consistent transaction story.
 
