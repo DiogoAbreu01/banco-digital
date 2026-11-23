@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/das-animated-icon.svg" alt="Aurora animated project emblem" width="122" /></p>
+
 <h1 align="center">AURORA</h1>
 
 **Trust is a database invariant.**
