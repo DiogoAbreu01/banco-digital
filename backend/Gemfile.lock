@@ -296,7 +296,7 @@ DEPENDENCIES
   puma (~> 8.0, >= 8.0.4)
   rack-attack (~> 6.8)
   rack-cors (~> 3.0)
-  rails (~> 8.1.0)
+  rails (~> 8.1.0, >= 8.1.4.1)
   redis (~> 5.4)
   rotp (~> 6.3)
   rspec-rails (~> 8.0)
